@@ -1,11 +1,13 @@
 <?php
-    $conn = mysqli_connect("localhost","root", "", "fundamental_php");
-    // mengecek koneksi
+    $conn = mysqli_connect("localhost", "root", "", "fundamental_php");
+    //checkConn
     if (!$conn) {
-        die("Koneksi gagal: " . mysqli_connect_error());
+        die("Connection Failed!!!: " . mysqli_connect_error());
     }
-    echo "Koneksi berhasil";
     mysqli_close($conn);
+
+    $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
+    var_dump($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
