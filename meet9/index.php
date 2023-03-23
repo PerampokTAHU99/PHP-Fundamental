@@ -10,7 +10,7 @@
     $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
 
     while($getData = mysqli_fetch_assoc($result)){
-        var_dump($getData);
+        
     }
     
 ?>
