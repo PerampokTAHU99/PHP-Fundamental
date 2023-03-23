@@ -1,13 +1,18 @@
 <?php
+    // ini_set("display_errors", "1");
+    // error_reporting(E_ALL);
     $conn = mysqli_connect("localhost", "root", "", "fundamental_php");
     //checkConn
     if (!$conn) {
-        die("Connection Failed!!!: " . mysqli_connect_error());
+        die("Connection Failed!!!: " . mysqli_connect_error($conn));
     }
-    mysqli_close($conn);
 
     $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
-    var_dump($result);
+
+    while($getData = mysqli_fetch_assoc($result)){
+        var_dump($getData);
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
