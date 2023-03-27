@@ -1,6 +1,17 @@
 <?php
-   require 'functions.php';
-   $mahasiswa = query("SELECT * FROM mahasiswa");
+    // ini_set("display_errors", "1");
+    // error_reporting(E_ALL);
+    $conn = mysqli_connect("localhost", "root", "", "fundamental_php");
+    //checkConn
+    // if (!$conn) {
+    //     die("Connection Failed!!!: " . mysqli_connect_error($conn));
+    // }
+
+    $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
+
+    // while($getData = mysqli_fetch_assoc($result)){
+        
+    // }
     
 ?>
 <!DOCTYPE html>
@@ -27,8 +38,8 @@
         <?php 
             $i = 1;
         ?>
-        <?php
-            foreach($mahasiswa as $row) : 
+        <?php 
+            while($row = mysqli_fetch_assoc($result)):
         ?>
         <tr>
             <td><?= $i ?></td>
@@ -44,7 +55,7 @@
             </td>
         </tr>
         <?php $i++ ?>
-        <?php endforeach;?>
+        <?php endwhile;?>
     </table>
 </body> 
 </html>
