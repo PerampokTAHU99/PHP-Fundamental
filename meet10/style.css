@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+}
+
+table{
+    text-align: center;
+    margin: auto;
+    
+}
+.addButton{
+    text-align: center;
+    margin: auto;
+}
+form.formData{
+    line-height: 20px;
+    text-indent: 2px;
+}
+.addDataForm{
+    text-align: center;
+    margin: auto;
+}
