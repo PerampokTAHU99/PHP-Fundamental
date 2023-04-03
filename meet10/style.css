@@ -7,15 +7,12 @@ table{
     margin: auto;
     
 }
-.addButton{
-    text-align: center;
-    margin: auto;
-}
-form.formData{
-    line-height: 20px;
-    text-indent: 2px;
-}
 .addDataForm{
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+}
+.formData{
     text-align: center;
     margin: auto;
 }
