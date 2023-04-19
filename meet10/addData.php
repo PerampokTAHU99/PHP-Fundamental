@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <?php
-    //connection
-    $conn = mysqli_connect("localhost", "root", "", "fundamental_php");
-
+    require 'functions.php';
     //check submit button
     if(isset($_POST["submit"])){
-        //fecth data from for every elemen in the form
-        $name = $_POST["name"];
-        $nim = $_POST["nim"];
-        $email = $_POST["email"];
-        $programStudy = $_POST["programStudy"];
-        $picture = $_POST["picture"];
-
-    //query
-    $query = "INSERT INTO mahasiswa (name, nim, email, programStudy, picture)VALUES ('$name','$nim','$email','$programStudy','$picture')";
-    mysqli_query($conn, $query);
-
-    //checking submit
-    if(mysqli_affected_rows($conn)>0){
-        echo "berhasil";
-    }else{
-        echo "gagal";
-        echo "<br>";
-        echo mysqli_error($conn);
-    }
+        //checking data 
+        if(addData($_POST)>0){
+            echo "
+                <script>
+                    alert('Adding Data Success!!');
+                    document.location.href = 'index.php';
+                </script>
+            ";
+        }else{
+            echo "
+                <script>
+                    alert('Adding Data not successful');
+                    document.location.href = 'index.php';
+                </script>
+            ";
+        }
     };
 ?>
 <html lang="en">
@@ -39,15 +34,15 @@
     <div class="addDataForm" >
         <form action="" method="POST" class="formData" >
             <label for="name">Nama :</label>
-            <input type="text" name="name" id="name"><br><br>
+            <input type="text" name="name" id="name" required><br><br>
             <label for="nim">NIM :</label>
-            <input type="text" name="nim" id="nim"><br><br>
+            <input type="text" name="nim" id="nim" required><br><br>
             <label for="email">Email :</label>
-            <input type="text" name="email" id="email"><br><br>
+            <input type="text" name="email" id="email" required><br><br>
             <label for="programStudy">Program Studi :</label>
-            <input type="text" name="programStudy" id="programStudy"><br><br>
+            <input type="text" name="programStudy" id="programStudy" required><br><br>
             <label for="picture">Foto :</label>
-            <input type="text" name="picture" id="picture"><br><br>
+            <input type="text" name="picture" id="picture" required><br><br>
             <button type="submit" name="submit">Tambah Data!</button>
         </form>
     </div>
