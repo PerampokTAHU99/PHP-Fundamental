@@ -1,0 +1,18 @@
+h1{
+    text-align: center;
+}
+
+table{
+    text-align: center;
+    margin: auto;
+    
+}
+.addDataForm{
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+}
+.formData{
+    text-align: center;
+    margin: auto;
+}
