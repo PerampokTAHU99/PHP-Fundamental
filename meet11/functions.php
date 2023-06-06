@@ -36,5 +36,25 @@
     }
     function editData($data){
         global $conn;
+
+
+        $id = $data["id"];
+        $name = htmlspecialchars($data["name"]);
+        $nim = htmlspecialchars($data["nim"]);
+        $email = htmlspecialchars($data["email"]);
+        $programStudy = htmlspecialchars($data["programStudy"]);
+        $picture = htmlspecialchars($data["picture"]);
+
+        $query = "UPDATE mahasiswa SET 
+                name = '$name',
+                nim = '$nim',
+                email = '$email',
+                programStudy = '$programStudy',
+                picture = '$picture'
+        WHERE id = $id";
+
+        mysqli_query($conn, $query);
+
+        return mysqli_affected_rows($conn);
     }
 ?>
