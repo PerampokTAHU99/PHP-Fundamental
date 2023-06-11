@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <?php
     require 'functions.php';
-
-    //get data in URL
-    $id = $_GET["id"];
-    
-    $mhs = query("SELECT * FROM mahasiswa WHERE id = $id")[0];
     //check submit button
     if(isset($_POST["submit"])){
-        
-        //checking data
+        //checking data 
         if(editData($_POST)>0){
             echo "
                 <script>
-                    alert('Editing Data Success!!');
+                    alert('Adding Data Success!!');
                     document.location.href = 'index.php';
                 </script>
             ";
         }else{
             echo "
                 <script>
-                    alert('Editing Data not successful');
+                    alert('Adding Data not successful');
                     document.location.href = 'index.php';
                 </script>
             ";
@@ -33,24 +27,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/meet10/style.css">
-    <title>Edit Data Mahasiswa</title>
+    <title>Tambah Data Mahasiswa</title>
 </head>
 <body>
-    <h1>Edit Data Mahasiswa</h1>
+    <h1>Tambah Data Mahasiswa</h1>
     <div class="addDataForm" >
         <form action="" method="POST" class="formData" >
-            <input type="hidden" name="id" value="<?= $mhs["id"]?>">
             <label for="name">Nama :</label>
-            <input type="text" name="name" id="name" required value="<?= $mhs["name"]; ?>"><br><br>
+            <input type="text" name="name" id="name" required><br><br>
             <label for="nim">NIM :</label>
-            <input type="text" name="nim" id="nim" required value="<?= $mhs["nim"]; ?>"><br><br>
+            <input type="text" name="nim" id="nim" required><br><br>
             <label for="email">Email :</label>
-            <input type="text" name="email" id="email" required value="<?= $mhs["email"]; ?>"><br><br>
+            <input type="text" name="email" id="email" required><br><br>
             <label for="programStudy">Program Studi :</label>
-            <input type="text" name="programStudy" id="programStudy" required value="<?= $mhs["programStudy"]; ?>"><br><br>
+            <input type="text" name="programStudy" id="programStudy" required><br><br>
             <label for="picture">Foto :</label>
-            <input type="text" name="picture" id="picture" required value="<?= $mhs["picture"]; ?>"><br><br>
-            <button type="submit" name="submit">Edit Data!</button>
+            <input type="text" name="picture" id="picture" required><br><br>
+            <button type="submit" name="submit">Tambah Data!</button>
         </form>
     </div>
 </body>
