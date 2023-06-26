@@ -148,17 +148,39 @@ function find($keyword)
 function regist($data)
 {
     global $conn;
-    
+
     $username = strtolower(stripslashes($data["username"]));
     $password = mysqli_real_escape_string($conn, $data["password"]);
     $password2 = mysqli_real_escape_string($conn, $data["password2"]);
 
+    //check username
+    $result = mysqli_query($conn, "SELECT username FROM users WHERE username = '$username' ");
+
+    if(mysqli_fetch_assoc($result)){
+        echo "<script>
+            alert('Username has been registered!!!');
+        </script>";
+
+        return false;
+    }
+
     //confirmation password
-    if($password !== $password2){
-        echo"<script>
+    if ($password !== $password2) {
+        echo "<script>
             alert('Passwords do not match!!');
         </script>";
 
         return false;
     }
+
+    //encryption password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    
+
+    //adding user into database
+
+    mysqli_query($conn, "INSERT INTO `users` (`username`, `password`) VALUES ('$username', '$password');");
+
+
+    return mysqli_affected_rows($conn);
 }
