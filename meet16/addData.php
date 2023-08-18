@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php
+require 'session.php';
     require 'functions.php';
     //check submit button
     if(isset($_POST["submit"])){
@@ -21,6 +21,7 @@
         }
     };
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

@@ -23,6 +23,7 @@ if (isset($_POST['register'])) {
 </head>
 
 <body>
+    <h1>Registration</h1>
     <div>
         <form action="" method="POST" class="formRegister">
             <ul>
@@ -43,6 +44,7 @@ if (isset($_POST['register'])) {
                 </li>
             </ul>
         </form>
+        <p>have already account? <a href="login.php">Click here!</a></p>
     </div>
 
 </body>

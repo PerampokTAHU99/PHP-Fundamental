@@ -30,3 +30,6 @@ table{
 .formRegister ul li label {
     display: block;
 }
+.logout{
+    margin-left: 20px;
+}

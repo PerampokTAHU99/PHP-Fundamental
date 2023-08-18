@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php
+    require 'session.php';
     require 'functions.php';
 
     //get data in URL
@@ -27,6 +27,7 @@
         }
     };
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
