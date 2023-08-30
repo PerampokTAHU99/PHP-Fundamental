@@ -1,7 +1,15 @@
 <?php
-registButton();
 require 'functions.php';
 
+if (isset($_POST['register'])) {
+    if (regist($_POST) > 0) {
+        echo "<script>
+                    alert('New user has been added!!!')
+                </script>";
+    }else{
+        echo mysqli_error($conn);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
