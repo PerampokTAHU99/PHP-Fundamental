@@ -3,8 +3,15 @@ require 'session.php';
 require 'functions.php';
 
 //pagination
+//config
+$jumDataPerHal = 2;
+$jumData = count(query("SELECT * FROM mahasiswa"));
+$jumHal = ceil($jumData / $jumDataPerHal);
+$halAktif = (isset($_GET["hal"])) ? $_GET["hal"] : 1;
+$awalData = ($jumDataPerHal * $halAktif) - $jumDataPerHal;
 
-$mahasiswa = query("SELECT * FROM mahasiswa ORDER BY id DESC");
+
+$mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awalData, $jumDataPerHal ");
 
 
 //find Data
@@ -31,12 +38,32 @@ if (isset($_POST["find"])) {
             <input type="text" name="keyword" autofocus placeholder="Masukan Keyword Pencarian..." autocomplete="off">
             <button type="submit" name="find">Cari!</button>
         </form>
+
+
         <a href="addData.php" style="margin-left: 20px;">Tambah Data mahasiswa</a>
         <div class="logout">
             <form action="" method="POST">
                 <button><a href="logout.php">Logout</a></button>
             </form>
         </div>
+        <!-- pagination -->
+        <?php if ($halAktif > 1) : ?>
+            <a href="?hal= <?= $halAktif - 1 ?>">&laquo;</a>
+        <?php endif; ?>
+
+        <?php for ($i = 1; $i <= $jumHal; $i++) : ?>
+            <?php if ($i == $halAktif) : ?>
+                <a href="?hal=<?= $i ?>" style="font-weight: bold; color:red;"><?= $i ?></a>
+            <?php else : ?>
+                <a href="?hal=<?= $i ?>"><?= $i ?></a>
+            <?php endif; ?>
+        <?php endfor; ?>
+
+        <?php if ($halAktif < $jumHal) : ?>
+            <a href="?hal= <?= $halAktif + 1 ?>">&raquo;</a>
+        <?php endif; ?>
+
+
     </div>
     <br>
     <table border="1" cellpadding="10" cellspacing="0">
