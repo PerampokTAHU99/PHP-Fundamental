@@ -36,39 +36,39 @@ if (isset($_POST["find"])) {
     </div>
     <br>
     <div id="container">
-        <table border="1" cellpadding="10" cellspacing="0">
-            <tr>
-                <th>No.</th>
-                <th>Foto</th>
-                <th>Nama</th>
-                <th>Nim</th>
-                <th>E-mail</th>
-                <th>Program Studi</th>
-                <th>Tools</th>
-            </tr>
-            <?php
-            $i = 1;
-            ?>
-            <?php
-            foreach ($mahasiswa as $row) :
-            ?>
+            <table border="1" cellpadding="10" cellspacing="0">
                 <tr>
-                    <td><?= $i ?></td>
-                    <td>
-                        <img src="img/<?= $row["picture"]; ?>" alt="foto siswa" width="50">
-                    </td>
-                    <td><?= $row["name"]; ?></td>
-                    <td><?= $row["nim"]; ?></td>
-                    <td><?= $row["email"]; ?></td>
-                    <td><?= $row["programStudy"]; ?>
-                    <td>
-                        <a href="editData.php?id=<?= $row["id"]; ?>">Edit</a> |
-                        <a href="deleteData.php?id=<?= $row["id"]; ?>" onclick="return confirm('Are u sure to delete this data ?');">Delete</a>
-                    </td>
+                    <th>No.</th>
+                    <th>Foto</th>
+                    <th>Nama</th>
+                    <th>Nim</th>
+                    <th>E-mail</th>
+                    <th>Program Studi</th>
+                    <th>Tools</th>
                 </tr>
-                <?php $i++ ?>
-            <?php endforeach; ?>
-        </table>
+                <?php
+                $i = 1;
+                ?>
+                <?php
+                foreach ($mahasiswa as $row) :
+                ?>
+                    <tr>
+                        <td><?= $i ?></td>
+                        <td>
+                            <img src="img/<?= $row["picture"]; ?>" alt="foto siswa" width="50">
+                        </td>
+                        <td><?= $row["name"]; ?></td>
+                        <td><?= $row["nim"]; ?></td>
+                        <td><?= $row["email"]; ?></td>
+                        <td><?= $row["programStudy"]; ?>
+                        <td>
+                            <a href="editData.php?id=<?= $row["id"]; ?>">Edit</a> |
+                            <a href="deleteData.php?id=<?= $row["id"]; ?>" onclick="return confirm('Are u sure to delete this data ?');">Delete</a>
+                        </td>
+                    </tr>
+                    <?php $i++ ?>
+                <?php endforeach; ?>
+            </table>
     </div>
     <script src="js/script.js"></script>
 </body>
