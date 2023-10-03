@@ -39,7 +39,6 @@
             <div class="kotak"><?= $b; ?></div>
         <?php endforeach; ?>
         <div class="clear"></div>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 </body>
-
 </html>

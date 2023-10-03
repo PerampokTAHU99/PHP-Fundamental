@@ -1,0 +1,42 @@
+h1{
+    text-align: center;
+}
+
+table{
+    text-align: center;
+    margin: auto;
+    
+}
+.addDataForm{
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+}
+.formData{
+    text-align: center;
+    margin: auto;
+}
+.headAct{
+    margin: auto;
+    text-align: center;
+    margin-left: 265px;
+}
+.formRegister{
+    display: block;
+}
+.formRegister li{
+    list-style: none;
+}
+.formRegister ul li label {
+    display: block;
+}
+.logout{
+    margin-left: 20px;
+}
+.loader{
+    width: 25px;
+    position: absolute;
+    top: 75px;
+    margin-left: 20px;
+    display: none;
+}
