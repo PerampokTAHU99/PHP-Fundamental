@@ -34,7 +34,7 @@ if (isset($_POST["find"])) {
         <div>
             <form action="">
                 <button>
-                    <a href="print.php" target="_blank">Print</a>
+                    <a href="print2.php" target="_blank">Print</a>
                 </button>
             </form>
         </div>
