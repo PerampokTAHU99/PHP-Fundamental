@@ -49,7 +49,7 @@
                 <?php endif; ?>
                 <?php for ($j = 1; $j <= 5; $j++) : ?>
                     <td><?= "$i,$j"; ?></td>
-                <? endfor; ?>
+                <?php endfor; ?>
                 </tr>
             <?php endfor; ?>
     </table>
